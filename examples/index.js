@@ -9,7 +9,9 @@
 
 var DateTimeTouch = require('../src/index');
 
-var dtt = new DateTimeTouch();
+var dtt = new DateTimeTouch({
+    second: false
+});
 
 dtt.on('change', function (dt) {
     console.log('change', dt);
