@@ -14,18 +14,25 @@ var DraggableList = require('blear.ui.draggable-list');
 var selector = require('blear.core.selector');
 
 var namespace = 'blearui-dateTimeTouch';
-var defaults = {};
-var DateTimeTouch = Popup.extend({
+var defaults = {
+    year: true,
+    month: true,
+    date: true,
+    hour: true,
+    minute: true,
+    second: true
+};
+var DateTimeToucher = Popup.extend({
     constructor: function (options) {
         var the = this;
 
         the[_options] = object.assign({}, defaults, options);
-        DateTimeTouch.parent(the);
+        DateTimeToucher.parent(the);
         the[_initNode]();
         the[_initEvent]();
     }
 });
-var sole = DateTimeTouch.sole;
+var sole = DateTimeToucher.sole;
 var _options = sole();
 var _initNode = sole();
 var _initEvent = sole();
@@ -35,7 +42,7 @@ var _dateDraggableList = sole();
 var _hourDraggableList = sole();
 var _minuteDraggableList = sole();
 var _secondDraggableList = sole();
-var proto = DateTimeTouch.prototype;
+var proto = DateTimeToucher.prototype;
 
 proto[_initNode] = function () {
     var the = this;
@@ -124,8 +131,8 @@ proto[_initEvent] = function () {
 };
 
 require('./style.css', 'css|style');
-DateTimeTouch.defaults = defaults;
-module.exports = DateTimeTouch;
+DateTimeToucher.defaults = defaults;
+module.exports = DateTimeToucher;
 
 function wrapList(list, unit, plus) {
     plus = plus || 0;
