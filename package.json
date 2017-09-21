@@ -1,5 +1,5 @@
 {
-  "name": "blear.ui.date-time-touch",
+  "name": "blear.ui.date-time-toucher",
   "version": "1.0.0",
   "description": "日期时间触摸选择器",
   "scripts": {
@@ -23,13 +23,13 @@
     "url": "http://ydr.me"
   },
   "contributors": [],
-  "homepage": "https://github.com/blearjs/blear.ui.date-time-touch",
+  "homepage": "https://github.com/blearjs/blear.ui.date-time-toucher",
   "repository": {
     "type": "git",
-    "url": "https://github.com/blearjs/blear.ui.date-time-touch"
+    "url": "https://github.com/blearjs/blear.ui.date-time-toucher"
   },
   "bugs": {
-    "url": "https://github.com/blearjs/blear.ui.date-time-touch/issues"
+    "url": "https://github.com/blearjs/blear.ui.date-time-toucher/issues"
   },
   "dependencies": {
     "blear.classes.draggable": "^1.0.8",
