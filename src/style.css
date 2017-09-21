@@ -1,0 +1,15 @@
+.blearui-dateTimeTouch {
+  background: #fff; }
+  .blearui-dateTimeTouch-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex; }
+  .blearui-dateTimeTouch-item {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1; }

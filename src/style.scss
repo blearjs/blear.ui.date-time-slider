@@ -1,0 +1,15 @@
+@import "../node_modules/blear.scss.flex/src/index";
+
+.blearui-dateTimeTouch {
+  background: #fff;
+
+  &-container {
+    @include flex();
+  }
+
+  &-item {
+    @include flex-grow(1);
+  }
+}
+
+
