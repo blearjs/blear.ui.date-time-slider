@@ -44,6 +44,29 @@ var DateTimeToucher = Popup.extend({
      */
     setDate: function (dt) {
         var the = this;
+        if (the[_yearDraggableList]) {
+            the[_yearDraggableList].setActive(findIndex(the[_yearList], dt.getFullYear()));
+        }
+
+        if (the[_monthDraggableList]) {
+            the[_monthDraggableList].setActive(findIndex(the[_monthList], dt.getMonth()));
+        }
+
+        if (the[_dateDraggableList]) {
+            the[_dateDraggableList].setActive(findIndex(the[_dateList], dt.getDate()));
+        }
+
+        if (the[_hourDraggableList]) {
+            the[_hourDraggableList].setActive(findIndex(the[_hourList], dt.getHours()));
+        }
+
+        if (the[_minuteDraggableList]) {
+            the[_minuteDraggableList].setActive(findIndex(the[_minuteList], dt.getMinutes()));
+        }
+
+        if (the[_secondDraggableList]) {
+            the[_secondDraggableList].setActive(findIndex(the[_secondList], dt.getSeconds()));
+        }
 
         return the;
     },
@@ -105,11 +128,17 @@ var _maxDate = sole();
 var _initDate = sole();
 var _initNode = sole();
 var _initEvent = sole();
+var _yearList = sole();
 var _yearDraggableList = sole();
+var _monthList = sole();
 var _monthDraggableList = sole();
+var _dateList = sole();
 var _dateDraggableList = sole();
+var _hourList = sole();
 var _hourDraggableList = sole();
+var _minuteList = sole();
 var _minuteDraggableList = sole();
+var _secondList = sole();
 var _secondDraggableList = sole();
 var proto = DateTimeToucher.prototype;
 
@@ -142,67 +171,67 @@ proto[_initNode] = function () {
     if (options.year) {
         var minYear = the[_minDate].getFullYear();
         var maxYear = the[_maxDate].getFullYear();
-        var yearList = wrapList(array.range(minYear, maxYear), '年');
+        the[_yearList] = wrapList(array.range(minYear, maxYear), '年');
 
         the[_yearDraggableList] = new DraggableList({
             el: nodeList[0],
-            list: yearList,
-            active: findIndex(yearList, the[_initDate].getFullYear())
+            list: the[_yearList],
+            active: findIndex(the[_yearList], the[_initDate].getFullYear())
         });
     } else {
         hide(0);
     }
 
     if (options.month) {
-        var monthList = wrapList(array.range(1, 12), '月', -1);
+        the[_monthList] = wrapList(array.range(1, 12), '月', -1);
         the[_monthDraggableList] = new DraggableList({
             el: nodeList[1],
-            list: monthList,
-            active: findIndex(monthList, the[_initDate].getMonth())
+            list: the[_monthList],
+            active: findIndex(the[_monthList], the[_initDate].getMonth())
         });
     } else {
         hide(1);
     }
 
     if (options.date) {
-        var dateList = wrapList(array.range(1, 31), '日');
+        the[_dateList] = wrapList(array.range(1, 31), '日');
         the[_dateDraggableList] = new DraggableList({
             el: nodeList[2],
-            list: dateList,
-            active: findIndex(dateList, the[_initDate].getDate())
+            list: the[_dateList],
+            active: findIndex(the[_dateList], the[_initDate].getDate())
         });
     } else {
         hide(2);
     }
 
     if (options.hour) {
-        var hourList = wrapList(array.range(0, 23), '时');
+        the[_hourList] = wrapList(array.range(0, 23), '时');
         the[_hourDraggableList] = new DraggableList({
             el: nodeList[3],
-            list: hourList,
-            active: findIndex(hourList, the[_initDate].getHours())
+            list: the[_hourList],
+            active: findIndex(the[_hourList], the[_initDate].getHours())
         });
     } else {
         hide(3);
     }
 
     if (options.minute) {
-        var minuteList = wrapList(array.range(0, 59), '分');
+        the[_minuteList] = wrapList(array.range(0, 59), '分');
         the[_minuteDraggableList] = new DraggableList({
             el: nodeList[4],
-            list: minuteList,
-            active: findIndex(minuteList, the[_initDate].getMinutes())
+            list: the[_minuteList],
+            active: findIndex(the[_minuteList], the[_initDate].getMinutes())
         });
     } else {
         hide(4);
     }
 
     if (options.second) {
-        var secondList = wrapList(array.range(0, 59), '秒');
+        the[_secondList] = wrapList(array.range(0, 59), '秒');
         the[_secondDraggableList] = new DraggableList({
             el: nodeList[5],
-            list: secondList,
-            active: findIndex(secondList, the[_initDate].getSeconds())
+            list: the[_secondList],
+            active: findIndex(the[_secondList], the[_initDate].getSeconds())
         });
     } else {
         hide(5);
