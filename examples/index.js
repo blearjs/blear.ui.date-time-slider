@@ -9,9 +9,13 @@
 
 var DateTimeTouch = require('../src/index');
 
+
 var dtt = new DateTimeTouch({
-    second: false
+    second: false,
+    initDate: new Date(2018, 3, 11, 12, 34, 56)
 });
+
+console.log('初始化', dtt.getDate());
 
 dtt.on('change', function (dt) {
     console.log('change', dt);
