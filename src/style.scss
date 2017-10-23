@@ -1,6 +1,7 @@
 @import "../node_modules/blear.scss.flex/src/index";
 
 .blearui-dateTimeTouch {
+  border-top: 1px solid #808080;
   background: #fff;
 
   &-container {
@@ -11,5 +12,4 @@
     @include flex-grow(1);
   }
 }
-
 
