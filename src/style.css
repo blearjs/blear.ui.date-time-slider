@@ -1,6 +1,16 @@
 .blearui-dateTimeTouch {
-  border-top: 1px solid #808080;
   background: #fff; }
+  .blearui-dateTimeTouch-header {
+    text-align: right;
+    background: #eee;
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada; }
+  .blearui-dateTimeTouch-btn {
+    display: inline-block;
+    font-size: 14px;
+    padding: 10px 15px;
+    line-height: 1;
+    color: #333; }
   .blearui-dateTimeTouch-container {
     display: -webkit-box;
     display: -moz-box;

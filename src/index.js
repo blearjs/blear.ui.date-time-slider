@@ -13,6 +13,7 @@ var date = require('blear.utils.date');
 var DraggableList = require('blear.ui.draggable-list');
 var selector = require('blear.core.selector');
 var attribute = require('blear.core.attribute');
+var event = require('blear.core.event');
 
 var namespace = 'blearui-dateTimeTouch';
 var defaults = {
@@ -127,6 +128,7 @@ var _minDate = sole();
 var _maxDate = sole();
 var _initDate = sole();
 var _initNode = sole();
+var _sureBtnEl = sole();
 var _initEvent = sole();
 var _yearList = sole();
 var _yearDraggableList = sole();
@@ -164,6 +166,7 @@ proto[_initNode] = function () {
 
     popupEl.innerHTML = require('./template.html');
     var nodeList = selector.query('.' + namespace + '-item', popupEl);
+    the[_sureBtnEl] = selector.query('.' + namespace + '-btn', popupEl)[0];
     var hide = function (index) {
         attribute.hide(nodeList[index]);
     };
@@ -277,6 +280,10 @@ proto[_initEvent] = function () {
 
     the.on('close', function () {
         the.emit('change', the.getDate());
+    });
+
+    event.on(the[_sureBtnEl], 'click', function () {
+        the.close();
     });
 };
 
